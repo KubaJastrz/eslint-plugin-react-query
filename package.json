@@ -11,6 +11,7 @@
   "bugs": {
     "url": "https://github.com/KubaJastrz/eslint-plugin-react-query/issues"
   },
+  "main": "dist/index.js",
   "scripts": {
     "dev": "jest --watch",
     "build": "tsc",
