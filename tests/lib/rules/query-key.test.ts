@@ -1,4 +1,4 @@
-import { rule, name } from '../../../lib/rules/require-query-key';
+import { rule, name } from '../../../lib/rules/query-key';
 import { createRuleTester } from '../test-utils';
 
 const ruleTester = createRuleTester();

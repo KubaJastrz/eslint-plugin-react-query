@@ -3,7 +3,7 @@ import { createRule } from '../utils/create-rule';
 const USE_QUERY = 'useQuery';
 const QUERY_KEY = 'queryKey';
 
-export const name = 'require-query-key';
+export const name = 'query-key';
 
 export const rule = createRule({
   name,
