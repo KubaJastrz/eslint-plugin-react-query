@@ -1,7 +1,2 @@
-import { configs } from './configs';
-import { rules } from './rules';
-
-export default {
-  configs,
-  rules,
-};
+export { configs } from './configs';
+export { rules } from './rules';
