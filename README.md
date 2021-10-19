@@ -1,6 +1,6 @@
 <h1 align="center">ESLint Plugin React Query</h1>
 
-<p align="center">Community ESLint rules for [React Query](https://react-query.tanstack.com/).</p>
+<p align="center">Community ESLint rules for <a href="https://react-query.tanstack.com/">React Query</a>.</p>
 
 <p align="center">
     <a href="https://github.com/KubaJastrz/eslint-plugin-react-query/blob/master/LICENSE"><img src="https://img.shields.io/badge/license-MIT-success?style=flat" alt="License MIT" /></a>
