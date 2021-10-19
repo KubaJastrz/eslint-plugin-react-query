@@ -29,6 +29,10 @@
     "printWidth": 100,
     "singleQuote": true
   },
+  "files": [
+    "dist",
+    "docs"
+  ],
   "engines": {
     "node": ">=12"
   },
