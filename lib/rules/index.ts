@@ -1,7 +1,20 @@
-import { rule as mutationKey } from './mutation-key';
-import { rule as queryKey } from './query-key';
+import fs from 'fs';
+import path from 'path';
 
-export const rules = {
-  'mutation-key': mutationKey,
-  'query-key': queryKey,
-};
+import type { TSESLint } from '@typescript-eslint/experimental-utils';
+
+type RuleModule = TSESLint.RuleModule<string, unknown[]>;
+
+const rulesDir = __dirname;
+const excludesFiles = ['index'];
+
+export const rules = fs
+  .readdirSync(rulesDir)
+  .map((rulePath) => path.parse(rulePath).name)
+  .filter((ruleName) => !excludesFiles.includes(ruleName))
+  .reduce<Record<string, RuleModule>>((allRules, ruleName) => {
+    return {
+      ...allRules,
+      [ruleName]: require(path.join(rulesDir, ruleName)).rule,
+    };
+  }, {});
