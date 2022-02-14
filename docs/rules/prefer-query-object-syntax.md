@@ -1,4 +1,4 @@
-# Prefer object syntax for useQuery (`prefer-query-object-syntax`)
+# Prefer object syntax for useQuery (`eslint-plugin-react-query/prefer-query-object-syntax`)
 
 You can use [`useQuery`](https://react-query.tanstack.com/reference/useQuery) in two different ways.
 

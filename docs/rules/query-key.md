@@ -1,4 +1,4 @@
-# Enforce queryKey to be present in useQuery object syntax (`query-key`)
+# Enforce queryKey to be present in useQuery object syntax (`eslint-plugin-react-query/query-key`)
 
 When using [`useQuery`](https://react-query.tanstack.com/reference/useQuery) with object syntax, it's easy to forget about the `queryKey`, even though it is required property.
 
