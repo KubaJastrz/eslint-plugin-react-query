@@ -54,6 +54,18 @@ export const rule = createRule({
             ? thirdArgument
             : undefined;
 
+        if (
+          secondArgument &&
+          !thirdArgument &&
+          secondArgument !== optionsObject &&
+          secondArgument.type === 'Identifier'
+        ) {
+          // Unable to determine if the secondArgument identifier is the options object or query fn.
+          // User has to fix the code manually.
+          context.report({ node, messageId: 'preferObjectSyntax' });
+          return;
+        }
+
         context.report({
           node,
           messageId: 'preferObjectSyntax',

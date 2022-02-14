@@ -65,10 +65,7 @@ ruleTester.run(name, rule, {
         useQuery(queryKey, queryFn)
       `,
       errors: [{ messageId: 'preferObjectSyntax' }],
-      output: `
-        import { useQuery } from 'react-query'
-        useQuery({ queryKey, queryFn })
-      `,
+      // no autofix
     },
     {
       code: `
