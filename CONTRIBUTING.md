@@ -10,7 +10,7 @@
 
 ### Setup steps
 
-1. [Fork and fork the repository](https://docs.github.com/en/get-started/quickstart/fork-a-repo)
+1. [Fork and clone the repository](https://docs.github.com/en/get-started/quickstart/fork-a-repo)
 
 2. Install dependencies
 
