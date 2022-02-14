@@ -1,5 +1,5 @@
 import { createRule } from '../utils/create-rule';
-import { isPropertyValueNull, isPropertyValueUndefined } from '../utils/is-helpers';
+import { isPropertyValueNull, isPropertyValueUndefined } from '../utils/ast-helpers';
 
 const USE_MUTATION = 'useMutation';
 const MUTATION_KEY = 'mutationKey';

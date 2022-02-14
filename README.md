@@ -43,10 +43,11 @@ You can also use recommended rules with this plugin:
 
 **Key**: ✅ = recommended, 🔧 = fixable
 
-| Name                                         | Description                                              | ✅  | 🔧  |
-| -------------------------------------------- | -------------------------------------------------------- | --- | --- |
-| [`mutation-key`](docs/rules/mutation-key.md) | Enforce mutationKey to be present in useMutation call    | ✅  |     |
-| [`query-key`](docs/rules/query-key.md)       | Enforce queryKey to be present in useQuery object syntax | ✅  |     |
+| Name                                                                     | Description                                              | ✅  | 🔧  |
+| ------------------------------------------------------------------------ | -------------------------------------------------------- | --- | --- |
+| [`mutation-key`](docs/rules/mutation-key.md)                             | Enforce mutationKey to be present in useMutation call    | ✅  |     |
+| [`prefer-query-object-syntax`](docs/rules/prefer-query-object-syntax.md) | Prefer object syntax for useQuery                        | ✅  | 🔧  |
+| [`query-key`](docs/rules/query-key.md)                                   | Enforce queryKey to be present in useQuery object syntax | ✅  |     |
 
 ## Attributions
 
