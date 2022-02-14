@@ -1,4 +1,4 @@
-# Enforce mutationKey to be present in useMutation call (`mutation-key`)
+# Enforce mutationKey to be present in useMutation call (`eslint-plugin-react-query/mutation-key`)
 
 When using [`useMutation`](https://react-query.tanstack.com/reference/useMutation), it's beneficial to specify `mutationKey` property to distinguish mutations in React Query devtools.
 

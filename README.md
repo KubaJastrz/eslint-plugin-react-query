@@ -49,6 +49,10 @@ You can also use recommended rules with this plugin:
 | [`prefer-query-object-syntax`](docs/rules/prefer-query-object-syntax.md) | Prefer object syntax for useQuery                        | ✅  | 🔧  |
 | [`query-key`](docs/rules/query-key.md)                                   | Enforce queryKey to be present in useQuery object syntax | ✅  |     |
 
+## Contributing
+
+Check out [CONTRIBUTING.md](CONTRIBUTING.md) for information on how to contribute to the project.
+
 ## Attributions
 
 Big thanks to [Testing Library](https://github.com/testing-library/eslint-plugin-testing-library/) team for the code inspiration.
