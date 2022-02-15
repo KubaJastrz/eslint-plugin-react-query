@@ -1,7 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 
-import type { TSESLint } from '@typescript-eslint/experimental-utils';
+import type { TSESLint } from '@typescript-eslint/utils';
 
 type RuleModule = TSESLint.RuleModule<string, unknown[]>;
 

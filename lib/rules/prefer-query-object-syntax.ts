@@ -1,4 +1,4 @@
-import { TSESLint } from '@typescript-eslint/experimental-utils';
+import { TSESLint } from '@typescript-eslint/utils';
 import { getRangeOfArguments } from '../utils/ast-helpers';
 import { createRule } from '../utils/create-rule';
 

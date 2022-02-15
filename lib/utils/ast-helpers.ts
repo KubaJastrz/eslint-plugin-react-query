@@ -1,4 +1,4 @@
-import type { TSESTree } from '@typescript-eslint/experimental-utils';
+import type { TSESTree } from '@typescript-eslint/utils';
 
 export function isPropertyValueNull(property: TSESTree.Property) {
   const { value } = property;
