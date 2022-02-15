@@ -38,8 +38,11 @@ jobs:
         with:
           install-command: yarn --frozen-lockfile
 
-      - name: Test
+      - name: Unit test
         run: yarn test
+
+      - name: Smoke test
+        run: yarn test:smoke
 
   release:
     name: release
