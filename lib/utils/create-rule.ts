@@ -1,5 +1,5 @@
-import { ESLintUtils } from '@typescript-eslint/experimental-utils';
-import { detectReactQueryImports, EnhancedCreate } from './detectReactQueryImports';
+import { ESLintUtils } from '@typescript-eslint/utils';
+import { detectReactQueryImports, EnhancedCreate } from './detect-react-query-imports';
 
 const getDocsUrl = (ruleName: string): string =>
   `https://github.com/KubaJastrz/eslint-plugin-react-query/tree/master/docs/rules/${ruleName}.md`;

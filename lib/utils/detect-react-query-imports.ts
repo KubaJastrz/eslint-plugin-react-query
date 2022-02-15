@@ -1,4 +1,4 @@
-import { ESLintUtils, TSESLint, TSESTree } from '@typescript-eslint/experimental-utils';
+import { ESLintUtils, TSESLint, TSESTree } from '@typescript-eslint/utils';
 
 type Create = Parameters<ReturnType<typeof ESLintUtils.RuleCreator>>[0]['create'];
 
