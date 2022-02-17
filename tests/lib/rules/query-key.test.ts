@@ -1,35 +1,35 @@
 import { rule, name } from '../../../lib/rules/query-key';
-import { createRuleTester } from '../test-utils';
+import { createRuleTester, normalizeIndent } from '../test-utils';
 
 const ruleTester = createRuleTester();
 
 ruleTester.run(name, rule, {
   valid: [
     {
-      code: `
+      code: normalizeIndent`
         useQuery()
       `,
     },
     {
-      code: `
+      code: normalizeIndent`
         import { useQuery } from 'react-query'
         useQuery()
       `,
     },
     {
-      code: `
+      code: normalizeIndent`
         import { useQuery } from 'react-query'
         useQuery(queryKey, queryFn)
       `,
     },
     {
-      code: `
+      code: normalizeIndent`
         import { useQuery } from 'react-query'
         const response = useQuery(queryKey, queryFn)
       `,
     },
     {
-      code: `
+      code: normalizeIndent`
         import { useQuery } from 'somewhere-else'
         useQuery({
           queryFn,
@@ -37,7 +37,7 @@ ruleTester.run(name, rule, {
       `,
     },
     {
-      code: `
+      code: normalizeIndent`
         import { useQuery } from 'react-query'
         useQuery({
           queryFn,
@@ -49,20 +49,20 @@ ruleTester.run(name, rule, {
 
   invalid: [
     {
-      code: `
+      code: normalizeIndent`
         import { useQuery } from 'react-query'
         useQuery({})
       `,
-      errors: [{ messageId: 'missingQueryKey', line: 3, column: 9 }],
+      errors: [{ messageId: 'missingQueryKey' }],
     },
     {
-      code: `
+      code: normalizeIndent`
         import { useQuery } from 'react-query'
         useQuery({
           queryFn,
         })
       `,
-      errors: [{ messageId: 'missingQueryKey', line: 3, column: 9 }],
+      errors: [{ messageId: 'missingQueryKey' }],
     },
   ],
 });

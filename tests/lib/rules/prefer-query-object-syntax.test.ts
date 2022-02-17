@@ -1,35 +1,35 @@
 import { rule, name } from '../../../lib/rules/prefer-query-object-syntax';
-import { createRuleTester } from '../test-utils';
+import { createRuleTester, normalizeIndent } from '../test-utils';
 
 const ruleTester = createRuleTester();
 
 ruleTester.run(name, rule, {
   valid: [
     {
-      code: `
+      code: normalizeIndent`
         useQuery()
       `,
     },
     {
-      code: `
+      code: normalizeIndent`
         import { useQuery } from 'react-query'
         useQuery()
       `,
     },
     {
-      code: `
+      code: normalizeIndent`
         import { useQuery } from 'react-query'
         useQuery({ queryKey, queryFn, enabled })
       `,
     },
     {
-      code: `
+      code: normalizeIndent`
         import { useQuery } from 'react-query'
         const result = useQuery({ queryKey, queryFn, enabled })
       `,
     },
     {
-      code: `
+      code: normalizeIndent`
         import { useQuery } from 'somewhere-else'
         useQuery(queryKey, queryFn, { enabled })
       `,
@@ -38,29 +38,29 @@ ruleTester.run(name, rule, {
 
   invalid: [
     {
-      code: `
+      code: normalizeIndent`
         import { useQuery } from 'react-query'
         useQuery('data')
       `,
       errors: [{ messageId: 'preferObjectSyntax' }],
-      output: `
+      output: normalizeIndent`
         import { useQuery } from 'react-query'
         useQuery({ queryKey: 'data' })
       `,
     },
     {
-      code: `
+      code: normalizeIndent`
         import { useQuery } from 'react-query'
         useQuery(queryKey)
       `,
       errors: [{ messageId: 'preferObjectSyntax' }],
-      output: `
+      output: normalizeIndent`
         import { useQuery } from 'react-query'
         useQuery({ queryKey })
       `,
     },
     {
-      code: `
+      code: normalizeIndent`
         import { useQuery } from 'react-query'
         useQuery(queryKey, queryFn)
       `,
@@ -68,56 +68,56 @@ ruleTester.run(name, rule, {
       // no autofix
     },
     {
-      code: `
+      code: normalizeIndent`
         import { useQuery } from 'react-query'
         useQuery('data', () => fetchData())
       `,
       errors: [{ messageId: 'preferObjectSyntax' }],
-      output: `
+      output: normalizeIndent`
         import { useQuery } from 'react-query'
         useQuery({ queryKey: 'data', queryFn: () => fetchData() })
       `,
     },
     {
-      code: `
+      code: normalizeIndent`
         import { useQuery } from 'react-query'
         useQuery(queryKey, queryFn, { enabled })
       `,
       errors: [{ messageId: 'preferObjectSyntax' }],
-      output: `
+      output: normalizeIndent`
         import { useQuery } from 'react-query'
         useQuery({ queryKey, queryFn, enabled })
       `,
     },
     {
-      code: `
+      code: normalizeIndent`
         import { useQuery } from 'react-query'
         useQuery('data', () => fetchData(), { enabled: false })
       `,
       errors: [{ messageId: 'preferObjectSyntax' }],
-      output: `
+      output: normalizeIndent`
         import { useQuery } from 'react-query'
         useQuery({ queryKey: 'data', queryFn: () => fetchData(), enabled: false })
       `,
     },
     {
-      code: `
+      code: normalizeIndent`
         import { useQuery } from 'react-query'
         useQuery(queryKey, { queryFn, enabled })
       `,
       errors: [{ messageId: 'preferObjectSyntax' }],
-      output: `
+      output: normalizeIndent`
         import { useQuery } from 'react-query'
         useQuery({ queryKey, queryFn, enabled })
       `,
     },
     {
-      code: `
+      code: normalizeIndent`
         import { useQuery } from 'react-query'
         useQuery('data', { queryFn: () => fetchData(), enabled: false })
       `,
       errors: [{ messageId: 'preferObjectSyntax' }],
-      output: `
+      output: normalizeIndent`
         import { useQuery } from 'react-query'
         useQuery({ queryKey: 'data', queryFn: () => fetchData(), enabled: false })
       `,

@@ -1,8 +1,10 @@
 import { createRule } from '../utils/create-rule';
-import { isPropertyValueNull, isPropertyValueUndefined } from '../utils/ast-helpers';
-
-const USE_MUTATION = 'useMutation';
-const MUTATION_KEY = 'mutationKey';
+import {
+  isMutationKeyProperty,
+  isPropertyValueNull,
+  isPropertyValueUndefined,
+  isUseMutationIdentifier,
+} from '../utils/ast-helpers';
 
 export const name = 'mutation-key';
 
@@ -26,9 +28,7 @@ export const rule = createRule({
     return {
       CallExpression(node) {
         const isUseMutation =
-          node.callee.type === 'Identifier' &&
-          node.callee.name === USE_MUTATION &&
-          helpers.isReactQueryImport(node.callee);
+          isUseMutationIdentifier(node.callee) && helpers.isReactQueryImport(node.callee);
 
         if (!isUseMutation) {
           return;
@@ -53,13 +53,7 @@ export const rule = createRule({
           return;
         }
 
-        const mutationKeyProperty = optionsArgument.properties.find((property) => {
-          return (
-            property.type === 'Property' &&
-            property.key.type === 'Identifier' &&
-            property.key.name === MUTATION_KEY
-          );
-        });
+        const mutationKeyProperty = optionsArgument.properties.find(isMutationKeyProperty);
 
         if (!mutationKeyProperty) {
           context.report({

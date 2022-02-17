@@ -1,7 +1,5 @@
+import { isQueryKeyProperty, isUseQueryIdentifier } from '../utils/ast-helpers';
 import { createRule } from '../utils/create-rule';
-
-const USE_QUERY = 'useQuery';
-const QUERY_KEY = 'queryKey';
 
 export const name = 'query-key';
 
@@ -24,9 +22,7 @@ export const rule = createRule({
     return {
       CallExpression(node) {
         const isUseQuery =
-          node.callee.type === 'Identifier' &&
-          node.callee.name === USE_QUERY &&
-          helpers.isReactQueryImport(node.callee);
+          isUseQueryIdentifier(node.callee) && helpers.isReactQueryImport(node.callee);
         if (!isUseQuery) {
           return;
         }
@@ -41,13 +37,7 @@ export const rule = createRule({
           return;
         }
 
-        const hasQueryKeyProperty = firstArgument.properties.find((property) => {
-          return (
-            property.type === 'Property' &&
-            property.key.type === 'Identifier' &&
-            property.key.name === QUERY_KEY
-          );
-        });
+        const hasQueryKeyProperty = firstArgument.properties.find(isQueryKeyProperty);
 
         if (!hasQueryKeyProperty) {
           context.report({
