@@ -1,23 +1,23 @@
 import { rule, name } from '../../../lib/rules/mutation-key';
-import { createRuleTester } from '../test-utils';
+import { createRuleTester, normalizeIndent } from '../test-utils';
 
 const ruleTester = createRuleTester();
 
 ruleTester.run(name, rule, {
   valid: [
     {
-      code: `
+      code: normalizeIndent`
         useMutation()
       `,
     },
     {
-      code: `
+      code: normalizeIndent`
         import { useMutation } from 'react-query'
         useMutation()
       `,
     },
     {
-      code: `
+      code: normalizeIndent`
         import { useMutation } from 'react-query'
         useMutation(mutationFn, {
           mutationKey: 'test'
@@ -25,7 +25,7 @@ ruleTester.run(name, rule, {
       `,
     },
     {
-      code: `
+      code: normalizeIndent`
       import { useMutation } from 'react-query'
       useMutation(mutationFn, {
         mutationKey: 'test'
@@ -33,7 +33,7 @@ ruleTester.run(name, rule, {
       `,
     },
     {
-      code: `
+      code: normalizeIndent`
       import { useMutation } from 'react-query'
       const { mutate } = useMutation(mutationFn, {
         mutationKey: 'test'
@@ -41,7 +41,7 @@ ruleTester.run(name, rule, {
       `,
     },
     {
-      code: `
+      code: normalizeIndent`
         import { useMutation } from 'somewhere-else'
         useMutation({
           onError,
@@ -52,14 +52,14 @@ ruleTester.run(name, rule, {
 
   invalid: [
     {
-      code: `
+      code: normalizeIndent`
         import { useMutation } from 'react-query'
         useMutation(mutationFn)
       `,
       errors: [{ messageId: 'missingMutationKey' }],
     },
     {
-      code: `
+      code: normalizeIndent`
         import { useMutation } from 'react-query'
         useMutation(mutationFn, {
           onError,
@@ -68,24 +68,24 @@ ruleTester.run(name, rule, {
       errors: [{ messageId: 'missingMutationKey' }],
     },
     {
-      code: `
+      code: normalizeIndent`
         import { useMutation } from 'react-query'
         useMutation(mutationFn, {
           mutationKey: undefined,
           onError,
         })
       `,
-      errors: [{ messageId: 'falsyMutationKey', line: 4, endLine: 4, column: 11, endColumn: 33 }],
+      errors: [{ messageId: 'falsyMutationKey' }],
     },
     {
-      code: `
+      code: normalizeIndent`
         import { useMutation } from 'react-query'
         useMutation(mutationFn, {
           mutationKey: null,
           onError,
         })
       `,
-      errors: [{ messageId: 'falsyMutationKey', line: 4, endLine: 4, column: 11, endColumn: 28 }],
+      errors: [{ messageId: 'falsyMutationKey' }],
     },
   ],
 });
