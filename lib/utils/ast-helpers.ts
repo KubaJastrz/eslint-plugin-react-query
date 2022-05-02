@@ -3,6 +3,7 @@ import type { TSESTree } from '@typescript-eslint/utils';
 export const ReactQueryIdentifiers = {
   UseQuery: 'useQuery',
   QueryKey: 'queryKey',
+  QueryFn: 'queryFn',
 
   UseMutation: 'useMutation',
   MutationKey: 'mutationKey',
@@ -30,6 +31,16 @@ export function isQueryKeyProperty(
   );
 }
 
+export function isQueryFnProperty(
+  property: TSESTree.ObjectLiteralElement,
+): property is TSESTree.Property {
+  return (
+    property.type === 'Property' &&
+    property.key.type === 'Identifier' &&
+    property.key.name === ReactQueryIdentifiers.QueryFn
+  );
+}
+
 export function isMutationKeyProperty(
   property: TSESTree.ObjectLiteralElement,
 ): property is TSESTree.Property {
@@ -48,6 +59,12 @@ export function isPropertyValueNull(property: TSESTree.Property) {
 export function isPropertyValueUndefined(property: TSESTree.Property) {
   const { value } = property;
   return value.type === 'Identifier' && value.name === 'undefined';
+}
+
+export function isFunctionLikeExpression(
+  node: TSESTree.CallExpressionArgument | TSESTree.Property['value'],
+): node is TSESTree.FunctionExpression | TSESTree.ArrowFunctionExpression {
+  return node.type === 'FunctionExpression' || node.type === 'ArrowFunctionExpression';
 }
 
 export function getRangeOfArguments(node: TSESTree.CallExpression): TSESTree.Range | undefined {
