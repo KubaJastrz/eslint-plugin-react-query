@@ -1,12 +1,23 @@
-<h1 align="center">ESLint Plugin React Query</h1>
+<h3>⚠️ PROJECT ARCHIVED ⚠️</h3>
 
-<p align="center">Community ESLint rules for <a href="https://react-query.tanstack.com/">React Query</a>.</p>
+The development has been moved to `@tanstack/eslint-plugin-query`.
 
-<p align="center">
-    <a href="https://github.com/KubaJastrz/eslint-plugin-react-query/blob/master/LICENSE"><img src="https://img.shields.io/badge/license-MIT-success?style=flat" alt="License MIT" /></a>
-    <a href="https://www.npmjs.com/package/eslint-plugin-react-query"><img src="https://img.shields.io/npm/v/eslint-plugin-react-query.svg?style=flat" alt="NPM Version" /></a>
-    <a href="https://www.npmjs.com/package/eslint-plugin-react-query"><img src="https://img.shields.io/npm/dm/eslint-plugin-react-query.svg?style=flat" alt="NPM Downloads" /></a>
-</p>
+New codebase: https://github.com/TanStack/query/blob/main/packages/eslint-plugin-query
+
+NPM: https://www.npmjs.com/package/@tanstack/eslint-plugin-query
+
+---
+
+<br>
+<br>
+
+# ESLint Plugin React Query
+
+Community ESLint rules for <a href="https://react-query.tanstack.com/">React Query</a>.
+
+<a href="https://github.com/KubaJastrz/eslint-plugin-react-query/blob/master/LICENSE"><img src="https://img.shields.io/badge/license-MIT-success?style=flat" alt="License MIT" /></a>
+<a href="https://www.npmjs.com/package/eslint-plugin-react-query"><img src="https://img.shields.io/npm/v/eslint-plugin-react-query.svg?style=flat" alt="NPM Version" /></a>
+<a href="https://www.npmjs.com/package/eslint-plugin-react-query"><img src="https://img.shields.io/npm/dm/eslint-plugin-react-query.svg?style=flat" alt="NPM Downloads" /></a>
 
 ## Quick Start
 
@@ -24,10 +35,10 @@ Add `react-query` to `plugins` field in your `.eslintrc` configuration file:
 
 ```json
 {
-  "plugins": ["react-query"],
-  "rules": {
-    "react-query/rule-name": "error"
-  }
+	"plugins": ["react-query"],
+	"rules": {
+		"react-query/rule-name": "error"
+	}
 }
 ```
 
@@ -35,7 +46,7 @@ You can also use recommended rules with this plugin:
 
 ```json
 {
-  "extends": ["plugin:react-query/recommended"]
+	"extends": ["plugin:react-query/recommended"]
 }
 ```
 
